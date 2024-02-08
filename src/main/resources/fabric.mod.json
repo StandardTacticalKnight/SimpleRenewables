@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
-  "id": "examplemod",
+  "id": "simplyskyblock",
   "version": "${version}",
 
-  "name": "Example Mod",
-  "description": "This mod aims to help new BTA modders.",
+  "name": "simply skyblock",
+  "description": "Adds necessary additions to make skyblock viable",
   "authors": [
-    "Turnip Labs"
+    "StandardTacticalKnight"
   ],
   "contact": {
     "homepage": "",
@@ -19,20 +19,20 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-			"turniplabs.examplemod.ExampleMod"
+			"standardtacticalknight.simplyskyblock.SimplySkyblock"
     ],
 		"beforeGameStart": [
-			"turniplabs.examplemod.ExampleMod"
+			"standardtacticalknight.simplyskyblock.SimplySkyblock"
 		],
 		"afterGameStart": [
-			"turniplabs.examplemod.ExampleMod"
+			"standardtacticalknight.simplyskyblock.SimplySkyblock"
 		],
 		"recipesReady": [
-			"turniplabs.examplemod.ExampleMod"
+			"standardtacticalknight.simplyskyblock.SimplySkyblock"
 		]
 	},
   "mixins": [
-      "examplemod.mixins.json"
+      "simplyskyblock.mixins.json"
   ],
 
   "depends": {
