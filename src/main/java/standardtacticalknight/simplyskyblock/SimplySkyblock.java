@@ -1,16 +1,13 @@
 package standardtacticalknight.simplyskyblock;
 
 import net.fabricmc.api.ModInitializer;
-import net.minecraft.client.render.block.model.BlockModelRenderBlocks;
 import net.minecraft.core.WeightedRandomLootObject;
 import net.minecraft.core.block.Block;
 import net.minecraft.core.block.BlockLayerBase;
 import net.minecraft.core.block.BlockMesh;
-import net.minecraft.core.block.BlockTorch;
 import net.minecraft.core.block.entity.TileEntity;
 import net.minecraft.core.block.material.Material;
 import net.minecraft.core.block.tag.BlockTags;
-import net.minecraft.core.data.registry.Registries;
 import net.minecraft.core.entity.Entity;
 import net.minecraft.core.entity.EntityItem;
 import net.minecraft.core.enums.EnumDropCause;
@@ -23,7 +20,6 @@ import org.slf4j.LoggerFactory;
 import turniplabs.halplibe.helper.BlockBuilder;
 import turniplabs.halplibe.helper.ItemHelper;
 import turniplabs.halplibe.helper.RecipeBuilder;
-import turniplabs.halplibe.helper.RegistryHelper;
 import turniplabs.halplibe.util.GameStartEntrypoint;
 import turniplabs.halplibe.util.RecipeEntrypoint;
 
@@ -33,7 +29,6 @@ public class SimplySkyblock implements ModInitializer, GameStartEntrypoint, Reci
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 	public static Block layerChainmail;
 	public static Block blockChainmail;
-	public static Block customBlockModel;
 	public static Item itemCrucible;
 
     @Override
@@ -94,13 +89,6 @@ public class SimplySkyblock implements ModInitializer, GameStartEntrypoint, Reci
 				}
 			});
 		((BlockLayerBase)layerChainmail).setFullBlockID(blockChainmail.id);
-
-		// Creates and assigns customBlockModel a new block with the language key 'tile.examplemod.customModel' with an id of 2004 with a custom texture and the torch model
-		customBlockModel = new BlockBuilder(MOD_ID)
-			.setTextures("customTorchTexture.png") // Sets the block texture to the one stored in '/assets/examplemod/block/customTorchTexture.png'
-			.setBlockModel(new BlockModelRenderBlocks(2))
-			.setLuminance(14) // Sets the block light output of the block, range from [0 - 15] its converted to a float internally by dividing the value by 15f
-			.build(new BlockTorch("customModel", startingBlockId++));
 
 		itemCrucible = ItemHelper.createItem(MOD_ID,new Item("crucible", itemID++),"crucible","crucible.png");
 
