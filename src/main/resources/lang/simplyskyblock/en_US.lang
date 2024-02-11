@@ -1,0 +1,10 @@
+tile.simplyskyblock.layer.chainmail.name=Chainmail Sheet
+tile.simplyskyblock.layer.chainmail.desc=Pieced together from scrap chainlinks
+tile.simplyskyblock.chainmailheap.name=Chainmail Heap
+tile.simplyskyblock.chainmailheap.desc=A big pile of chainmail Sheets
+
+tile.simplyskyblock.customModel.name=Custom Model
+tile.simplyskyblock.customModel.desc=A Torch with custom textures
+
+item.simplyskyblock.crucible.name=Crucible
+item.simplyskyblock.crucible.desc=A graphite crucible filled with stone ready for melting
