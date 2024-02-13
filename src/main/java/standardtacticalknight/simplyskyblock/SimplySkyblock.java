@@ -30,7 +30,6 @@ public class SimplySkyblock implements ModInitializer, GameStartEntrypoint, Reci
 	public static Block layerChainmail;
 	public static Block blockChainmail;
 	public static Item itemCrucible;
-
     @Override
     public void onInitialize() {
         LOGGER.info("SimplySkyblock initialized.");
@@ -38,8 +37,8 @@ public class SimplySkyblock implements ModInitializer, GameStartEntrypoint, Reci
 
 	@Override
 	public void beforeGameStart() {
-		int startingBlockId = 2000;
-		int itemID = 16750;
+		int startingBlockId = 2700;
+		int itemID = 18750;
 
 		blockChainmail = new BlockBuilder(MOD_ID)
 			.setTextures(7,19)
@@ -122,11 +121,6 @@ public class SimplySkyblock implements ModInitializer, GameStartEntrypoint, Reci
 		RecipeBuilder.Shapeless(MOD_ID)
 			.addInput(layerChainmail)
 			.create("chainLayerToLink", new ItemStack(Item.chainlink, 9));
-//		RecipeBuilder.Shapeless(MOD_ID)
-//			.addInput(Block.blockCharcoal)
-//			.addInput(Item.bucket)
-//			.addInput(Block.cobbleStone)
-//			.create("toLavaBucket", Item.bucketLava.getDefaultStack());
 		RecipeBuilder.Shapeless(MOD_ID)
 			.addInput(Block.cobbleStone)
 			.addInput(Block.ice)
@@ -168,7 +162,22 @@ public class SimplySkyblock implements ModInitializer, GameStartEntrypoint, Reci
 			.addEntry(new WeightedRandomLootObject(Block.sand.getDefaultStack(), 1,3), 50)
 			.addEntry(new WeightedRandomLootObject(Item.dustRedstone.getDefaultStack(), 1), 3)
 			.create("trommelScorch");
-
+		RecipeBuilder.Trommel(MOD_ID)
+			.setInput(Block.grass)
+			.addEntry(new WeightedRandomLootObject(Item.seedsPumpkin.getDefaultStack(), 1),1)
+			.addEntry(new WeightedRandomLootObject(Block.cactus.getDefaultStack(), 1),1)
+			.addEntry(new WeightedRandomLootObject(Block.mushroomBrown.getDefaultStack(), 1),1)
+			.addEntry(new WeightedRandomLootObject(Block.mushroomRed.getDefaultStack(), 1),1)
+			.addEntry(new WeightedRandomLootObject(Block.saplingBirch.getDefaultStack(), 1),1)
+			.addEntry(new WeightedRandomLootObject(Block.saplingCacao.getDefaultStack(), 1),1)
+			.addEntry(new WeightedRandomLootObject(Block.saplingCherry.getDefaultStack(), 1),1)
+			.addEntry(new WeightedRandomLootObject(Block.saplingOak.getDefaultStack(), 1),1)
+			.addEntry(new WeightedRandomLootObject(Block.saplingEucalyptus.getDefaultStack(), 1),1)
+			.addEntry(new WeightedRandomLootObject(Block.saplingOakRetro.getDefaultStack(), 1),1)
+			.addEntry(new WeightedRandomLootObject(Block.saplingPine.getDefaultStack(), 1),1)
+			.addEntry(new WeightedRandomLootObject(Block.saplingShrub.getDefaultStack(), 1),1)
+			.addEntry(new WeightedRandomLootObject(Block.dirt.getDefaultStack(), 1),100)
+			.create("trommelGrass");
 		RecipeBuilder.ModifyTrommel("minecraft", "soul_sand")
 			.addEntry(new WeightedRandomLootObject(Item.dustGlowstone.getDefaultStack(), 3), 1)
 			.addEntry(new WeightedRandomLootObject(Item.nethercoal.getDefaultStack(), 3), 1);
