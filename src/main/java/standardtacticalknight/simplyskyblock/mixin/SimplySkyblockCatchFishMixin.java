@@ -18,11 +18,11 @@ public class SimplySkyblockCatchFishMixin {
 		if(f<0.01){//1%
 			return new ItemStack(Item.armorBootsIceskates);
 		}else if(f<0.09) {//7%
-			return new ItemStack(Item.sugarcane);
+			return new ItemStack(Block.spongeWet);
 		}else if(f<0.1){//1%
 			return new ItemStack(Item.saddle);
 		}else if(f<0.25){//15%
-			return new ItemStack(Block.spongeWet);
+			return new ItemStack(Item.sugarcane);
 		}else if(f<0.4){//15%
 			return new ItemStack(Block.algae);
 		}else {//60%

@@ -1,14 +1,15 @@
 {
-    "required": true,
-    "minVersion": "0.8",
-    "package": "standardtacticalknight.simplyskyblock.mixin",
-    "compatibilityLevel": "JAVA_8",
-    "mixins": [
-      "SimplySkyblockCatchFishMixin"
-    ],
-    "client": [
-    ],
-    "injectors": {
-        "defaultRequire": 1
+  "required": true,
+  "minVersion": "0.8",
+  "package": "standardtacticalknight.simplyskyblock.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "SimplySkyblockCarbonToDiamondMixin",
+    "SimplySkyblockCatchFishMixin"
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
   }
 }

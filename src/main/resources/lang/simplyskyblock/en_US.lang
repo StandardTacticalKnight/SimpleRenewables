@@ -2,6 +2,8 @@ tile.simplyskyblock.layer.chainmail.name=Chainmail Sheet
 tile.simplyskyblock.layer.chainmail.desc=Pieced together from scrap chainlinks
 tile.simplyskyblock.chainmailheap.name=Chainmail Heap
 tile.simplyskyblock.chainmailheap.desc=A big pile of chainmail Sheets
+tile.simplyskyblock.compressedcarbon.name=Compressed Carbon Slug
+tile.simplyskyblock.compressedcarbon.desc=You might turn this dense lump into some sparkly new gems, if only you can somehow subject it to nearly 100GPa of pressure...
 
 item.simplyskyblock.crucible.name=Crucible
 item.simplyskyblock.crucible.desc=A graphite crucible filled with stone ready for melting

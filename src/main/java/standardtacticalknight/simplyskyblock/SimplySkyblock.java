@@ -27,6 +27,7 @@ import turniplabs.halplibe.util.RecipeEntrypoint;
 public class SimplySkyblock implements ModInitializer, GameStartEntrypoint, RecipeEntrypoint {
     public static final String MOD_ID = "simplyskyblock";
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
+	public static Block blockCompressedCarbon;
 	public static Block layerChainmail;
 	public static Block blockChainmail;
 	public static Item itemCrucible;
@@ -39,6 +40,27 @@ public class SimplySkyblock implements ModInitializer, GameStartEntrypoint, Reci
 	public void beforeGameStart() {
 		int startingBlockId = 2700;
 		int itemID = 18750;
+
+		blockCompressedCarbon = new BlockBuilder(MOD_ID)
+			.setTextures("compressedCarbon.png")
+			.setHardness(0.1f)
+			.build(new Block("compressedcarbon", startingBlockId++,Material.stone){
+				@Override
+				public ItemStack[] getBreakResult(World world, EnumDropCause dropCause, int x, int y, int z, int meta, TileEntity tileEntity) {
+					switch (dropCause) {
+						case PICK_BLOCK:
+                        case EXPLOSION:
+                        case IMPROPER_TOOL: {
+							return new ItemStack[]{new ItemStack(blockCompressedCarbon)};
+						}
+						//should only happen when pushed by piston
+						case SILK_TOUCH:{
+							return new ItemStack[]{new ItemStack(Item.coal, 8)};
+						}
+                    }
+					return null;
+				}
+			});
 
 		blockChainmail = new BlockBuilder(MOD_ID)
 			.setTextures(7,19)
@@ -117,6 +139,11 @@ public class SimplySkyblock implements ModInitializer, GameStartEntrypoint, Reci
 			.addInput('M', layerChainmail)
 			.addInput('L', "minecraft:logs")
 			.create("toTrommel", Block.trommelIdle.getDefaultStack());
+		RecipeBuilder.Shaped(MOD_ID)
+			.setShape(" C ", "CMC", " C ")
+			.addInput('C', Block.blockCharcoal)
+			.addInput('M', Block.blockNetherCoal)
+			.create("toCarbonCompressed", blockCompressedCarbon.getDefaultStack());
 
 		RecipeBuilder.Shapeless(MOD_ID)
 			.addInput(layerChainmail)
