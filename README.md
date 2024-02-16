@@ -1,4 +1,4 @@
-# Simply Skyblock
+# Simple Renewables
 
 A lightweight mod to make nearly all items and resources in BTA renewable in some way, ideal for skyblock or limited resource type worlds. 
 
