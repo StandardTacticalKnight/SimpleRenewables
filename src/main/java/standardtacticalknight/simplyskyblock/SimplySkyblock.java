@@ -33,7 +33,7 @@ public class SimplySkyblock implements ModInitializer, GameStartEntrypoint, Reci
 	public static Item itemCrucible;
     @Override
     public void onInitialize() {
-        LOGGER.info("SimplySkyblock initialized.");
+        LOGGER.info("SimplySkyblock initialized");
     }
 
 	@Override
