@@ -1,4 +1,4 @@
-package standardtacticalknight.simplyskyblock;
+package standardtacticalknight.simplerenewables;
 
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.core.WeightedRandomLootObject;
@@ -24,8 +24,8 @@ import turniplabs.halplibe.util.GameStartEntrypoint;
 import turniplabs.halplibe.util.RecipeEntrypoint;
 
 
-public class SimplySkyblock implements ModInitializer, GameStartEntrypoint, RecipeEntrypoint {
-    public static final String MOD_ID = "simplyskyblock";
+public class SimpleRenewables implements ModInitializer, GameStartEntrypoint, RecipeEntrypoint {
+    public static final String MOD_ID = "simplerenewables";
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 	public static Block blockCompressedCarbon;
 	public static Block layerChainmail;
@@ -33,7 +33,7 @@ public class SimplySkyblock implements ModInitializer, GameStartEntrypoint, Reci
 	public static Item itemCrucible;
     @Override
     public void onInitialize() {
-        LOGGER.info("SimplySkyblock initialized");
+        LOGGER.info("SimpleRenewables initialized");
     }
 
 	@Override

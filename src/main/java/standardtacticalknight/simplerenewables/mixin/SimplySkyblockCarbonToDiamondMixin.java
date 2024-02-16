@@ -1,4 +1,4 @@
-package standardtacticalknight.simplyskyblock.mixin;
+package standardtacticalknight.simplerenewables.mixin;
 
 import net.minecraft.core.block.Block;
 import net.minecraft.core.block.logic.PistonDirections;
@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-import standardtacticalknight.simplyskyblock.SimplySkyblock;
+import standardtacticalknight.simplerenewables.SimpleRenewables;
 
 @Mixin(BlockPistonBase.class)
 public class SimplySkyblockCarbonToDiamondMixin {
@@ -28,7 +28,7 @@ public class SimplySkyblockCarbonToDiamondMixin {
 		zo += PistonDirections.zOffset[direction % 6];
 		int idBedrock = world.getBlockId(xo, yo, zo);
 		int idBlock = world.getBlockId(x1, y1, z1);
-		if (idBedrock == Block.bedrock.id && idBlock == SimplySkyblock.blockCompressedCarbon.id) {
+		if (idBedrock == Block.bedrock.id && idBlock == SimpleRenewables.blockCompressedCarbon.id) {
 			world.playSoundEffect(SoundType.WORLD_SOUNDS, x, y, z, "random.explode", 4.0f, (1.0f + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.2f) * 0.2f);
 			world.dropItem(x1,y1,z1,new ItemStack(Item.diamond));
 		}

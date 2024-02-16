@@ -1,4 +1,4 @@
-package standardtacticalknight.simplyskyblock.mixin;
+package standardtacticalknight.simplerenewables.mixin;
 
 import net.minecraft.core.block.Block;
 import net.minecraft.core.entity.EntityBobber;

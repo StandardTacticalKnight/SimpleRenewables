@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "id": "simplyskyblock",
+  "id": "simplerenewables",
   "version": "${version}",
 
-  "name": "simply skyblock",
-  "description": "Adds necessary additions to make skyblock viable",
+  "name": "simple renewables",
+  "description": "Adds necessary additions to make skyblock etc. viable",
   "authors": [
     "StandardTacticalKnight"
   ],
@@ -19,20 +19,20 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-			"standardtacticalknight.simplyskyblock.SimplySkyblock"
+      "standardtacticalknight.simplerenewables.SimpleRenewables"
     ],
 		"beforeGameStart": [
-			"standardtacticalknight.simplyskyblock.SimplySkyblock"
+          "standardtacticalknight.simplerenewables.SimpleRenewables"
 		],
 		"afterGameStart": [
-			"standardtacticalknight.simplyskyblock.SimplySkyblock"
+          "standardtacticalknight.simplerenewables.SimpleRenewables"
 		],
 		"recipesReady": [
-			"standardtacticalknight.simplyskyblock.SimplySkyblock"
+          "standardtacticalknight.simplerenewables.SimpleRenewables"
 		]
 	},
   "mixins": [
-      "simplyskyblock.mixins.json"
+		"simplerenewables.mixins.json"
   ],
 
   "depends": {

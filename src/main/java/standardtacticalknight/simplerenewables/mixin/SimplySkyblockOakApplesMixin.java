@@ -1,4 +1,4 @@
-package standardtacticalknight.simplyskyblock.mixin;
+package standardtacticalknight.simplerenewables.mixin;
 import net.minecraft.core.block.Block;
 import net.minecraft.core.block.BlockLeavesBase;
 import net.minecraft.core.block.entity.TileEntity;
@@ -17,7 +17,7 @@ public class  SimplySkyblockOakApplesMixin {
 		if(world.rand.nextFloat()<0.01){//1% chance to replace sapling drop
 			int id = cir.getReturnValue()[0].itemID;
 			if(id == Block.saplingOak.id || id == Block.saplingOakRetro.id){
-				//SimplySkyblock.LOGGER.info("apple dropped");
+				//SimpleRenewables.LOGGER.info("apple dropped");
 				cir.setReturnValue(new ItemStack[]{new ItemStack(Item.foodApple, 1)});
 			}
 		}
