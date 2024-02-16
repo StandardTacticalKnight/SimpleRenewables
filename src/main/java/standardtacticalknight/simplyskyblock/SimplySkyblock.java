@@ -123,6 +123,7 @@ public class SimplySkyblock implements ModInitializer, GameStartEntrypoint, Reci
 
 	@Override
 	public void onRecipesReady() {
+		//Shaped recipes
 		RecipeBuilder.Shaped(MOD_ID)
 			.setShape("LLL", "LLL", "LLL")
 			.addInput('L', Item.chainlink)
@@ -144,7 +145,41 @@ public class SimplySkyblock implements ModInitializer, GameStartEntrypoint, Reci
 			.addInput('C', Block.blockCharcoal)
 			.addInput('M', Block.blockNetherCoal)
 			.create("toCarbonCompressed", blockCompressedCarbon.getDefaultStack());
+		RecipeBuilder.Shaped(MOD_ID)
+			.setShape("###", "#R#", "###")
+			.addInput('#', Block.cobbleStone)
+			.addInput('R', Item.dustRedstone)
+			.create("ToNetherrack", Block.netherrack.getDefaultStack());
+		RecipeBuilder.Shaped(MOD_ID)
+			.setShape("###", "RRQ", "###")
+			.addInput('#', Block.cobbleStoneMossy)
+			.addInput('R', Item.dustRedstone)
+			.addInput('Q', Item.quartz)
+			.create("ToMotionsense", Block.motionsensorIdle.getDefaultStack());
+		RecipeBuilder.Shaped(MOD_ID)
+			.setShape("###", "# #", "###")
+			.addInput('#', Item.ingotSteelCrude)
+			.create("ToSpawnerDeact", Block.mobspawnerDeactivated.getDefaultStack());
 
+		//Chain armor recipes
+		RecipeBuilder.Shaped(MOD_ID)
+			.setShape("LLL", "L L", "   ")
+			.addInput('L', layerChainmail)
+			.create("LayerToMailHelm", Item.armorHelmetChainmail.getDefaultStack());
+		RecipeBuilder.Shaped(MOD_ID)
+			.setShape("L L", "LLL", "LLL")
+			.addInput('L', layerChainmail)
+			.create("LayerToMailChes", Item.armorChestplateChainmail.getDefaultStack());
+		RecipeBuilder.Shaped(MOD_ID)
+			.setShape("LLL", "L L", "L L")
+			.addInput('L', layerChainmail)
+			.create("LayerToMailLegg", Item.armorLeggingsChainmail.getDefaultStack());
+		RecipeBuilder.Shaped(MOD_ID)
+			.setShape("   ", "L L", "L L")
+			.addInput('L', layerChainmail)
+			.create("LayerToMailBoot", Item.armorBootsChainmail.getDefaultStack());
+
+		//Shapeless recipes
 		RecipeBuilder.Shapeless(MOD_ID)
 			.addInput(layerChainmail)
 			.create("chainLayerToLink", new ItemStack(Item.chainlink, 9));
@@ -166,6 +201,7 @@ public class SimplySkyblock implements ModInitializer, GameStartEntrypoint, Reci
 			.addInput(Item.bone)
 			.create("toSoulSand", new ItemStack(Block.soulsand, 2));
 
+		//Furnace recipes
 		RecipeBuilder.Furnace(MOD_ID)
 			.setInput(layerChainmail)
 			.create("furnChainToIron", Item.ingotIron.getDefaultStack());
@@ -177,6 +213,7 @@ public class SimplySkyblock implements ModInitializer, GameStartEntrypoint, Reci
 			.setInput(itemCrucible)
 			.create("blastCrucibleToLava", Item.bucketLava.getDefaultStack());
 
+		//Trommel recipes
 		RecipeBuilder.Trommel(MOD_ID)
 			.setInput(Block.cobbleStone)
 			.addEntry(new WeightedRandomLootObject(Item.ammoPebble.getDefaultStack(), 1, 5),10)
@@ -185,9 +222,11 @@ public class SimplySkyblock implements ModInitializer, GameStartEntrypoint, Reci
 		RecipeBuilder.Trommel(MOD_ID)
 			.setInput(Block.dirtScorched)
 			.addEntry(new WeightedRandomLootObject(Item.ammoPebble.getDefaultStack(), 1, 5),10)
-			.addEntry(new WeightedRandomLootObject(Item.flint.getDefaultStack(), 1), 5)
+			.addEntry(new WeightedRandomLootObject(Item.flint.getDefaultStack(), 1), 3)
 			.addEntry(new WeightedRandomLootObject(Block.sand.getDefaultStack(), 1,3), 50)
-			.addEntry(new WeightedRandomLootObject(Item.dustRedstone.getDefaultStack(), 1), 3)
+			.addEntry(new WeightedRandomLootObject(Item.dustRedstone.getDefaultStack(), 1,2), 7)
+			.addEntry(new WeightedRandomLootObject(Block.spinifex.getDefaultStack(), 1), 1)
+			.addEntry(new WeightedRandomLootObject(Block.deadbush.getDefaultStack(), 1), 1)
 			.create("trommelScorch");
 		RecipeBuilder.Trommel(MOD_ID)
 			.setInput(Block.grass)
@@ -208,6 +247,5 @@ public class SimplySkyblock implements ModInitializer, GameStartEntrypoint, Reci
 		RecipeBuilder.ModifyTrommel("minecraft", "soul_sand")
 			.addEntry(new WeightedRandomLootObject(Item.dustGlowstone.getDefaultStack(), 3), 1)
 			.addEntry(new WeightedRandomLootObject(Item.nethercoal.getDefaultStack(), 3), 1);
-
 	}
 }
