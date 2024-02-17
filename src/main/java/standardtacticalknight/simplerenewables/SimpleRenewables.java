@@ -70,7 +70,7 @@ public class SimpleRenewables implements ModInitializer, GameStartEntrypoint, Re
 		blockChainmail = new BlockBuilder(MOD_ID)
 			.setTextures(7,19)
 			.setHardness(1f)
-			.setTags(BlockTags.MINEABLE_BY_PICKAXE,BlockTags.CHAINLINK_FENCES_CONNECT)
+			.setTags(BlockTags.MINEABLE_BY_PICKAXE,BlockTags.CHAINLINK_FENCES_CONNECT, BlockTags.NOT_IN_CREATIVE_MENU)
 			.build(new BlockMesh("chainmailheap", startingBlockId++){
 				@Override
 				public ItemStack[] getBreakResult(World world, EnumDropCause dropCause, int x, int y, int z, int meta, TileEntity tileEntity) {
@@ -129,10 +129,7 @@ public class SimpleRenewables implements ModInitializer, GameStartEntrypoint, Re
 	@Override
 	public void onRecipesReady() {
 		//Shaped recipes
-		RecipeBuilder.Shaped(MOD_ID)
-			.setShape("LLL", "LLL", "LLL")
-			.addInput('L', Item.chainlink)
-			.create("chainLinkToLayer", layerChainmail.getDefaultStack());
+
 		RecipeBuilder.Shaped(MOD_ID)
 			.setShape("LSL", "LBL", "LLL")
 			.addInput('L', Block.blockCharcoal)
@@ -154,7 +151,7 @@ public class SimpleRenewables implements ModInitializer, GameStartEntrypoint, Re
 			.setShape("###", "#R#", "###")
 			.addInput('#', Block.cobbleStone)
 			.addInput('R', Item.dustRedstone)
-			.create("ToNetherrack", Block.netherrack.getDefaultStack());
+			.create("ToNetherrack", new ItemStack(Block.netherrack, 8));
 		RecipeBuilder.Shaped(MOD_ID)
 			.setShape("###", "RRQ", "###")
 			.addInput('#', Block.cobbleStoneMossy)
@@ -165,6 +162,10 @@ public class SimpleRenewables implements ModInitializer, GameStartEntrypoint, Re
 			.setShape("###", "# #", "###")
 			.addInput('#', Item.ingotSteelCrude)
 			.create("ToSpawnerDeact", Block.mobspawnerDeactivated.getDefaultStack());
+		RecipeBuilder.Shaped(MOD_ID)
+			.setShape("LLL", "LLL", "LLL")
+			.addInput('L', Item.chainlink)
+			.create("chainLinkToLayer", layerChainmail.getDefaultStack());
 
 		//Chain armor recipes
 		RecipeBuilder.Shaped(MOD_ID)
