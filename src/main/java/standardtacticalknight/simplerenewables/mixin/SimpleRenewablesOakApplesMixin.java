@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.injection.*;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(BlockLeavesBase.class)
-public class  SimplySkyblockOakApplesMixin {
+public class SimpleRenewablesOakApplesMixin {
 	@Inject(method = "getBreakResult", at = @At("TAIL"),remap = false, cancellable = true)
 	private void addApples(World world, EnumDropCause dropCause, int x, int y, int z, int meta, TileEntity tileEntity, CallbackInfoReturnable<ItemStack[]> cir) {
 		if(world.rand.nextFloat()<0.01){//1% chance to replace sapling drop

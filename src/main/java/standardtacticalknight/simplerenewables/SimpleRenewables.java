@@ -15,8 +15,11 @@ import net.minecraft.core.item.Item;
 import net.minecraft.core.item.ItemStack;
 import net.minecraft.core.item.block.ItemBlockLayer;
 import net.minecraft.core.world.World;
+import net.minecraft.core.world.type.WorldType;
+import net.minecraft.core.world.type.WorldTypes;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import standardtacticalknight.simplerenewables.world.SimpleRenewablesWorldTypeSkyblock;
 import turniplabs.halplibe.helper.BlockBuilder;
 import turniplabs.halplibe.helper.ItemHelper;
 import turniplabs.halplibe.helper.RecipeBuilder;
@@ -27,6 +30,7 @@ import turniplabs.halplibe.util.RecipeEntrypoint;
 public class SimpleRenewables implements ModInitializer, GameStartEntrypoint, RecipeEntrypoint {
     public static final String MOD_ID = "simplerenewables";
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
+	public static WorldType SkyBlock;
 	public static Block blockCompressedCarbon;
 	public static Block layerChainmail;
 	public static Block blockChainmail;
@@ -40,6 +44,7 @@ public class SimpleRenewables implements ModInitializer, GameStartEntrypoint, Re
 	public void beforeGameStart() {
 		int startingBlockId = 2700;
 		int itemID = 18750;
+		SkyBlock = WorldTypes.register("simplesrenewables:skyblock", new SimpleRenewablesWorldTypeSkyblock("worldType.skyblock"));
 
 		blockCompressedCarbon = new BlockBuilder(MOD_ID)
 			.setTextures("compressedCarbon.png")

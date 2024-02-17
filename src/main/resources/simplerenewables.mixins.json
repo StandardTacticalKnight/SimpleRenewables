@@ -4,9 +4,9 @@
   "package": "standardtacticalknight.simplerenewables.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
-    "SimplySkyblockCarbonToDiamondMixin",
-    "SimplySkyblockCatchFishMixin",
-    "SimplySkyblockOakApplesMixin"
+    "SimpleRenewablesCarbonToDiamondMixin",
+    "SimpleRenewablesCatchFishMixin",
+    "SimpleRenewablesOakApplesMixin"
   ],
   "client": [
   ],

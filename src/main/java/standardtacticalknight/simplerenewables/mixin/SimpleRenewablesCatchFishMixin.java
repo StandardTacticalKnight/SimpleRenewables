@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.injection.*;
 import java.util.Random;
 
 @Mixin(EntityBobber.class)
-public class SimplySkyblockCatchFishMixin {
+public class SimpleRenewablesCatchFishMixin {
 	@Unique
 	private final Random random = new Random();
 	@ModifyArg(method = "catchFish()I", at = @At(value = "INVOKE", target = "Lnet/minecraft/core/entity/EntityItem;<init>(Lnet/minecraft/core/world/World;DDDLnet/minecraft/core/item/ItemStack;)V"), index = 4,remap = false)

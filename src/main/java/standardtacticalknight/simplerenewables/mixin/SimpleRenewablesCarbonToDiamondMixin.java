@@ -14,7 +14,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import standardtacticalknight.simplerenewables.SimpleRenewables;
 
 @Mixin(BlockPistonBase.class)
-public class SimplySkyblockCarbonToDiamondMixin {
+public class SimpleRenewablesCarbonToDiamondMixin {
 	@Inject(method = "canPushLine", at = @At(value = "INVOKE", target = "Lnet/minecraft/core/world/World;playSoundEffectForPlayer(Lnet/minecraft/core/entity/player/EntityPlayer;IIIII)V"), remap = false)
 	private static void injected(World world, int x, int y, int z, int direction, CallbackInfoReturnable<Boolean> cir) {
 		int xo = x + PistonDirections.xOffset[direction % 6];
