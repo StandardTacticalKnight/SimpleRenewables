@@ -221,16 +221,34 @@ public class SimpleRenewables implements ModInitializer, GameStartEntrypoint, Re
 
 		//Trommel recipes
 		RecipeBuilder.Trommel(MOD_ID)
+			.setInput(Block.cobbleBasalt)
+			.addEntry(new WeightedRandomLootObject(Item.ammoPebble.getDefaultStack(), 2, 5),10)
+			.addEntry(new WeightedRandomLootObject(Item.flint.getDefaultStack(), 1,4), 5)
+			.addEntry(new WeightedRandomLootObject(Item.coal.getDefaultStack(), 1), 1)
+			.create("trommelCobbleBasa");
+		RecipeBuilder.Trommel(MOD_ID)
+			.setInput(Block.cobbleGranite)
+			.addEntry(new WeightedRandomLootObject(Item.ammoPebble.getDefaultStack(), 2, 5),10)
+			.addEntry(new WeightedRandomLootObject(Item.flint.getDefaultStack(), 1,4), 5)
+			.addEntry(new WeightedRandomLootObject(Item.quartz.getDefaultStack(), 1), 1)
+			.create("trommelCobbleGran");
+		RecipeBuilder.Trommel(MOD_ID)
+			.setInput(Block.cobbleLimestone)
+			.addEntry(new WeightedRandomLootObject(Item.ammoPebble.getDefaultStack(), 2, 5),10)
+			.addEntry(new WeightedRandomLootObject(Item.flint.getDefaultStack(), 1,4), 5)
+			.addEntry(new WeightedRandomLootObject(Block.sand.getDefaultStack(), 1), 1)
+			.create("trommelCobbleLime");
+		RecipeBuilder.Trommel(MOD_ID)
 			.setInput(Block.cobbleStone)
-			.addEntry(new WeightedRandomLootObject(Item.ammoPebble.getDefaultStack(), 1, 5),10)
-			.addEntry(new WeightedRandomLootObject(Item.flint.getDefaultStack(), 1), 5)
+			.addEntry(new WeightedRandomLootObject(Item.ammoPebble.getDefaultStack(), 2, 5),10)
+			.addEntry(new WeightedRandomLootObject(Item.flint.getDefaultStack(), 1,4), 5)
 			.create("trommelCobble");
 		RecipeBuilder.Trommel(MOD_ID)
 			.setInput(Block.dirtScorched)
-			.addEntry(new WeightedRandomLootObject(Item.ammoPebble.getDefaultStack(), 1, 5),10)
+			.addEntry(new WeightedRandomLootObject(Item.ammoPebble.getDefaultStack(), 1, 5),5)
 			.addEntry(new WeightedRandomLootObject(Item.flint.getDefaultStack(), 1), 3)
-			.addEntry(new WeightedRandomLootObject(Block.sand.getDefaultStack(), 1,3), 50)
-			.addEntry(new WeightedRandomLootObject(Item.dustRedstone.getDefaultStack(), 1,2), 7)
+			.addEntry(new WeightedRandomLootObject(Block.sand.getDefaultStack(), 1,3), 40)
+			.addEntry(new WeightedRandomLootObject(Item.dustRedstone.getDefaultStack(), 1,3), 7)
 			.addEntry(new WeightedRandomLootObject(Block.spinifex.getDefaultStack(), 1), 1)
 			.addEntry(new WeightedRandomLootObject(Block.deadbush.getDefaultStack(), 1), 1)
 			.create("trommelScorch");
