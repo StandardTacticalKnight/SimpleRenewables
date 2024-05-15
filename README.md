@@ -1,27 +1,27 @@
-# Simple Renewables
+# Simple Renewables (Ex Nihilo for BTA)
 
-A lightweight mod to make nearly all items and resources in BTA renewable in some way, intended for skyblock or limited resource type worlds. Most of the documentation needed to use this mod can be found in game on your guidebook! Play on the newly added Skyblock world type to take full advantage of the changes! 
+A lightweight mod to make nearly all items and resources in BTA renewable in some way, intended for skyblock or limited resource type worlds. Most of the documentation needed to use this mod can be found in game on your guidebook! Try it out on the mod's newly added Skyblock world type to take full advantage of the changes! 
 
 ## Features
 - Adds crafting recipes for normally un-renewable items in BTA while maintaining the same vanilla spirit. 
 - Adds as few new items and blocks as possible (only 2 blocks and a single item) in order to preserve the vanilla BTA feel.
 - Adds a new world type `Skyblock` to the world creation menu.
-- Adds new fishing loot!
-- craftable chainmail
+- Adds **new fishing loot**!
+- **craftable chainmail**
 - BTA's dungeon loot now obtainable via rare fishing drops
-- Apples may very rarely drop from oak type trees
-- Adds a pseudo-realistic way of creating diamonds, by subjecting carbon to stupendous pressure!
+- **Apples** may very rarely drop from oak type trees
+- Adds a pseudo-realistic way of creating **diamonds**, by subjecting carbon to stupendous pressure!
 - Smelt down all that extra scrap chainmail from your mob farm into useful iron.
 
 ## Requirements
-- [BTA Babric instance 7.1pre1a](https://github.com/Turnip-Labs/babric-instance-repo/releases/tag/v7.1-pre1a)
+- [BTA Babric instance](https://github.com/Turnip-Labs/babric-instance-repo/releases/)
 
 ## Setup instructions
    
 1. See [BTA! wiki page about modding](https://bta.miraheze.org/wiki/Modding)
 2. Drag and drop the newest `simplerenewables-x.x.x.jar` into your instance's mod folder
 
-## Renewables Checklist
+## Renewables Checklist (as of 7.1pre1)
    | Items               | Blocks                  |
    |---------------------|-------------------------|
    | ![img.png](img.png) | ![img_1.png](img_1.png) |
