@@ -272,4 +272,9 @@ public class SimpleRenewables implements ModInitializer, GameStartEntrypoint, Re
 			.addEntry(new WeightedRandomLootObject(Item.dustGlowstone.getDefaultStack(), 3), 1)
 			.addEntry(new WeightedRandomLootObject(Item.nethercoal.getDefaultStack(), 3), 1);
 	}
+
+	@Override
+	public void initNamespaces() {
+
+	}
 }
