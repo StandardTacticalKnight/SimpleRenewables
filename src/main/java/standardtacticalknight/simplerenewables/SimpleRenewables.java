@@ -26,6 +26,9 @@ import turniplabs.halplibe.helper.RecipeBuilder;
 import turniplabs.halplibe.util.GameStartEntrypoint;
 import turniplabs.halplibe.util.RecipeEntrypoint;
 
+import static net.minecraft.core.data.registry.Registries.ITEM_GROUPS;
+import static net.minecraft.core.data.registry.Registries.stackListOf;
+
 
 public class SimpleRenewables implements ModInitializer, GameStartEntrypoint, RecipeEntrypoint {
     public static final String MOD_ID = "simplerenewables";
@@ -45,6 +48,8 @@ public class SimpleRenewables implements ModInitializer, GameStartEntrypoint, Re
 		int startingBlockId = 2700;
 		int itemID = 18750;
 		SkyBlock = WorldTypes.register("simplesrenewables:skyblock", new SimpleRenewablesWorldTypeSkyblock("worldType.skyblock"));
+		ITEM_GROUPS.unregister("minecraft:trommel_dirt");
+		ITEM_GROUPS.register("simplesrenewables:trommel_dirt", stackListOf(Block.dirt, Block.grassRetro, Block.pathDirt, Block.farmlandDirt));
 
 		blockCompressedCarbon = new BlockBuilder(MOD_ID)
 			.setTextures("compressedCarbon.png")
@@ -271,6 +276,20 @@ public class SimpleRenewables implements ModInitializer, GameStartEntrypoint, Re
 		RecipeBuilder.ModifyTrommel("minecraft", "soul_sand")
 			.addEntry(new WeightedRandomLootObject(Item.dustGlowstone.getDefaultStack(), 3), 1)
 			.addEntry(new WeightedRandomLootObject(Item.nethercoal.getDefaultStack(), 3), 1);
+
+		//BTA 7.1 fix for dirt ITEMGROUP
+		RecipeBuilder.ModifyTrommel("minecraft", "dirt")
+			.deleteRecipe();
+		RecipeBuilder.Trommel(MOD_ID)
+			.setInput("simplesrenewables:trommel_dirt")
+			.addEntry(new WeightedRandomLootObject(Item.ammoPebble.getDefaultStack(), 1, 3),50)
+			.addEntry(new WeightedRandomLootObject(Item.flint.getDefaultStack(), 1,5), 10)
+			.addEntry(new WeightedRandomLootObject(Item.clay.getDefaultStack(), 1,3), 20)
+			.addEntry(new WeightedRandomLootObject(Item.sulphur.getDefaultStack(), 1), 2)
+			.addEntry(new WeightedRandomLootObject(Item.olivine.getDefaultStack(), 1), 0.25)
+			.addEntry(new WeightedRandomLootObject(Item.oreRawIron.getDefaultStack(), 1), 0.5)
+			.addEntry(new WeightedRandomLootObject(Item.quartz.getDefaultStack(), 1), 0.25)
+			.create("simpletrommelDirt");
 	}
 
 	@Override
