@@ -278,6 +278,8 @@ public class SimpleRenewables implements ModInitializer, GameStartEntrypoint, Re
 			.addEntry(new WeightedRandomLootObject(Block.saplingOakRetro.getDefaultStack(), 1),1)
 			.addEntry(new WeightedRandomLootObject(Block.saplingPine.getDefaultStack(), 1),1)
 			.addEntry(new WeightedRandomLootObject(Block.saplingShrub.getDefaultStack(), 1),1)
+			.addEntry(new WeightedRandomLootObject(Block.saplingPalm.getDefaultStack(), 1),1)
+			.addEntry(new WeightedRandomLootObject(Block.saplingThorn.getDefaultStack(), 1),1)
 			.addEntry(new WeightedRandomLootObject(Block.dirt.getDefaultStack(), 1),100)
 			.create("trommelGrass");
 		RecipeBuilder.ModifyTrommel("minecraft", "soul_sand")
@@ -301,6 +303,6 @@ public class SimpleRenewables implements ModInitializer, GameStartEntrypoint, Re
 
 	@Override
 	public void initNamespaces() {
-
+		RecipeBuilder.initNameSpace(MOD_ID);
 	}
 }
