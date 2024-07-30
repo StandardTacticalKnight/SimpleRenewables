@@ -14,7 +14,7 @@ import java.util.Random;
 public class SimpleRenewablesCatchFishMixin {
 	@Unique
 	private final Random random = new Random();
-	@ModifyArg(method = "catchFish()I", at = @At(value = "INVOKE", target = "Lnet/minecraft/core/entity/EntityItem;<init>(Lnet/minecraft/core/world/World;DDDLnet/minecraft/core/item/ItemStack;)V"), index = 4,remap = false)
+	@ModifyArg(method = "yoink()I", at = @At(value = "INVOKE", target = "Lnet/minecraft/core/entity/EntityItem;<init>(Lnet/minecraft/core/world/World;DDDLnet/minecraft/core/item/ItemStack;)V"), index = 4,remap = false)
 	private ItemStack adjustYCoord(ItemStack itemstack) {
 		float f = random.nextFloat();
 		if(f<0.005){//.5%

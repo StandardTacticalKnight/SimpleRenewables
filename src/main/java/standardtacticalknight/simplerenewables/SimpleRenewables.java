@@ -21,6 +21,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import standardtacticalknight.simplerenewables.world.SimpleRenewablesWorldTypeSkyblock;
 import turniplabs.halplibe.helper.BlockBuilder;
+import turniplabs.halplibe.helper.ItemBuilder;
 import turniplabs.halplibe.helper.ItemHelper;
 import turniplabs.halplibe.helper.RecipeBuilder;
 import turniplabs.halplibe.util.GameStartEntrypoint;
@@ -41,6 +42,7 @@ public class SimpleRenewables implements ModInitializer, GameStartEntrypoint, Re
     @Override
     public void onInitialize() {
         LOGGER.info("SimpleRenewables initialized");
+
     }
 
 	@Override
@@ -48,11 +50,10 @@ public class SimpleRenewables implements ModInitializer, GameStartEntrypoint, Re
 		int startingBlockId = 2700;
 		int itemID = 18750;
 		SkyBlock = WorldTypes.register("simplesrenewables:skyblock", new SimpleRenewablesWorldTypeSkyblock("worldType.skyblock"));
-		ITEM_GROUPS.unregister("minecraft:trommel_dirt");
-		ITEM_GROUPS.register("simplesrenewables:trommel_dirt", stackListOf(Block.dirt, Block.grassRetro, Block.pathDirt, Block.farmlandDirt));
+
 
 		blockCompressedCarbon = new BlockBuilder(MOD_ID)
-			.setTextures("compressedCarbon.png")
+			.setTextures("simplerenewables:block/compressedCarbon")
 			.setHardness(0.1f)
 			.build(new Block("compressedcarbon", startingBlockId++,Material.stone){
 				@Override
@@ -73,7 +74,7 @@ public class SimpleRenewables implements ModInitializer, GameStartEntrypoint, Re
 			});
 
 		blockChainmail = new BlockBuilder(MOD_ID)
-			.setTextures(7,19)
+			.setTextures("minecraft:block/fence_chain_center")
 			.setHardness(1f)
 			.setTags(BlockTags.MINEABLE_BY_PICKAXE,BlockTags.CHAINLINK_FENCES_CONNECT, BlockTags.NOT_IN_CREATIVE_MENU)
 			.build(new BlockMesh("chainmailheap", startingBlockId++){
@@ -94,7 +95,7 @@ public class SimpleRenewables implements ModInitializer, GameStartEntrypoint, Re
 			});
 
 		layerChainmail = new BlockBuilder(MOD_ID)
-			.setTextures(7,19)
+			.setTextures("minecraft:block/fence_chain_center")
 			.setHardness(1f)
 			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
 			.setItemBlock(ItemBlockLayer::new)
@@ -113,15 +114,19 @@ public class SimpleRenewables implements ModInitializer, GameStartEntrypoint, Re
 					}
 					return null;
 				}
-				//makes mail layer act as Mesh blocks do (items pass through)
+
+				//makes mail layer act as Mesh blocks do (items pass through) TODO
 				@Override
-				public boolean collidesWithEntity(Entity entity) {
+				public boolean collidesWithEntity(Entity entity,World world, int x, int y, int z) {
 					return !(entity instanceof EntityItem);
 				}
 			});
-		((BlockLayerBase)layerChainmail).setFullBlockID(blockChainmail.id);
+		//((BlockLayerBase) layerChainmail).setFullBlockID(() -> blockChainmail.id);//not working for some reason
+		((BlockLayerBase) layerChainmail).fullBlockID = blockChainmail.id;
 
-		itemCrucible = ItemHelper.createItem(MOD_ID,new Item("crucible", itemID++),"crucible","crucible.png");
+		itemCrucible = new ItemBuilder(MOD_ID)
+			.setIcon("simplerenewables:item/crucible")
+			.build(new Item("crucible",itemID++));
 
 		// Make sure to assign names and descriptions to your blocks in your mods .lang file
 	}
@@ -133,6 +138,8 @@ public class SimpleRenewables implements ModInitializer, GameStartEntrypoint, Re
 
 	@Override
 	public void onRecipesReady() {
+		ITEM_GROUPS.unregister("minecraft:trommel_dirt");
+		ITEM_GROUPS.register("simplesrenewables:trommel_dirt", stackListOf(Block.dirt, Block.grassRetro, Block.pathDirt, Block.farmlandDirt));
 		//Shaped recipes
 
 		RecipeBuilder.Shaped(MOD_ID)
