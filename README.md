@@ -35,9 +35,21 @@ A lightweight mod to make nearly all items and resources in BTA renewable in som
 ![img_7.png](img_7.png)
 ### Blasting
 ![img_8.png](img_8.png)
+
+![img_13.png](img_13.png)
 ### Trommeling
 ![img_9.png](img_9.png)![img_10.png](img_10.png)
 ![img_11.png](img_11.png)![img_12.png](img_12.png)
+
+## Piston crushing
+
+Cobblestone->gravel 20%
+
+Gravel->Sand 20%
+
+Sand->Clay 15%
+
+???->???
 
 ## Skyblock Tips
 
