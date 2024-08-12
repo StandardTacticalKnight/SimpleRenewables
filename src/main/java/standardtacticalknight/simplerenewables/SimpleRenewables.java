@@ -140,6 +140,7 @@ public class SimpleRenewables implements ModInitializer, GameStartEntrypoint, Re
 	public void onRecipesReady() {
 		ITEM_GROUPS.unregister("minecraft:trommel_dirt");
 		ITEM_GROUPS.register("simplesrenewables:trommel_dirt", stackListOf(Block.dirt, Block.grassRetro, Block.pathDirt, Block.farmlandDirt));
+		ITEM_GROUPS.register("simplesrenewables:records", stackListOf(Item.record13, Item.recordCat, Item.recordBlocks, Item.recordChirp, Item.recordFar, Item.recordMall, Item.recordMellohi, Item.recordStal, Item.recordStrad, Item.recordWard, Item.recordWait, Item.recordDog));
 		//Shaped recipes
 
 		RecipeBuilder.Shaped(MOD_ID)
@@ -227,9 +228,13 @@ public class SimpleRenewables implements ModInitializer, GameStartEntrypoint, Re
 			.setInput(Block.dirt)
 			.create("furnDirtToScorched", Block.dirtScorched.getDefaultStack());
 
+		//blast furnace
 		RecipeBuilder.BlastFurnace(MOD_ID)
 			.setInput(itemCrucible)
 			.create("blastCrucibleToLava", Item.bucketLava.getDefaultStack());
+		RecipeBuilder.BlastFurnace(MOD_ID)
+			.setInput("simplesrenewables:records")
+			.create("blastRecordToCoal", Item.coal.getDefaultStack());
 
 		//Trommel recipes
 		RecipeBuilder.Trommel(MOD_ID)
@@ -257,10 +262,10 @@ public class SimpleRenewables implements ModInitializer, GameStartEntrypoint, Re
 			.create("trommelCobble");
 		RecipeBuilder.Trommel(MOD_ID)
 			.setInput(Block.dirtScorched)
-			.addEntry(new WeightedRandomLootObject(Item.ammoPebble.getDefaultStack(), 1, 5),5)
+			.addEntry(new WeightedRandomLootObject(Item.ammoPebble.getDefaultStack(), 1, 5),4)
 			.addEntry(new WeightedRandomLootObject(Item.flint.getDefaultStack(), 1), 3)
 			.addEntry(new WeightedRandomLootObject(Block.sand.getDefaultStack(), 1,3), 40)
-			.addEntry(new WeightedRandomLootObject(Item.dustRedstone.getDefaultStack(), 1,3), 7)
+			.addEntry(new WeightedRandomLootObject(Item.dustRedstone.getDefaultStack(), 1,9), 7)
 			.addEntry(new WeightedRandomLootObject(Block.spinifex.getDefaultStack(), 1), 1)
 			.addEntry(new WeightedRandomLootObject(Block.deadbush.getDefaultStack(), 1), 1)
 			.create("trommelScorch");
