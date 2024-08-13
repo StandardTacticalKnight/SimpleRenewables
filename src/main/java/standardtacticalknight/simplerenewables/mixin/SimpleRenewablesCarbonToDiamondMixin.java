@@ -44,7 +44,7 @@ public class SimpleRenewablesCarbonToDiamondMixin {
 			dropItem = Item.diamond;
 			pitch = 1.0f;
 		}
-		else if(randNum < 0.2f && idBlock == Block.cobbleStone.id){
+		else if(randNum < 0.1f && idBedrock == Block.bedrock.id && idBlock == Block.cobbleStone.id){
 			dropItem = Block.gravel.asItem();
 		}
 		else if(randNum < 0.2f &&idBlock == Block.gravel.id){
